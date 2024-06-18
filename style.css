@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --color-description: #4C4C4C;
+    --text-color: #232323; 
+    --background-color: #f9f9f9;
+}
+
+body {
+    font-family: 'Times New Roman', sans-serif;
+    /*letter-spacing: 0.8px;*/
+    font-size: 14pt;
+    max-width: 1020px; 
+    margin: auto;
+    padding: 0 60px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    /*font-weight: 300;*/
+}
+
+#mainLeft {
+    grid-area: left;
+}
+
+#mainRight {
+    grid-area: right;
+}
+
+main { 
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: 
+        "left right";
+    margin-top: 76px;
+    column-gap: 60px;
+}
+
+h1 {
+    font-size: 3.2em;
+    font-weight: 200;
+    letter-spacing: 11px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+span.name {
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1em;
+    line-height: 2.3;
+    font-weight: 800;
+    letter-spacing: 6.56px;
+    margin-top: 0;
+    margin-bottom: 27px;
+}
+
+h3 {
+    font-size: 1em;
+    margin: 13px 0;
+    font-weight: 600;
+    line-height: 2.3;
+    letter-spacing: 1.28px;
+}
+
+h1, h2 {
+    text-transform: uppercase;
+}
+
+p {
+    margin: 13px 0;
+}
+
+section.title {
+    display: flex;
+    margin-top: 86px;
+    margin-bottom: 73px;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    margin-bottom: 45px;
+}
+
+section.title  h1 {
+    margin: 0;
+    padding: 0;
+}
+
+img.profile {
+    height: 135px;
+    border-radius: 50%;
+    border: 1px solid #00000080;
+    padding: 5px;
+    margin-right: 52px;
+}
+
+header hr {
+    border: none;
+    height: 1px;
+    margin: 0;
+    /* Idea from: https://kovart.github.io/dashed-border-generator/ */
+    /* Uses an embedded svg as background image, with the given dash style: dash2, gap5 */
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cline x2='100%25' y2='0' fill='none' stroke='black' stroke-width='1' stroke-dasharray='2 5'  stroke-linecap='round'/%3e%3c/svg%3e");
+}
+
+section.about {
+    padding: 0 36px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 31px;
+    letter-spacing: 2px;
+    margin: 64px 0;
+}
+
+span.strong {
+    font-weight: 600;
+}
+
+.icon.social {
+    width: 44px;
+    margin-right: 13px;
+}
+
+/*  languages list  */
+li::marker {
+    /* font-size: 0.6em; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+li {
+    padding-left: 0.5em;
+}
+
+ul {
+    padding-left: 0.5em;
+}
+
+li > h3 {
+    margin-bottom: 0;
+}
+
+a.social {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+/* expandable details */
+.details {
+    display: none;
+}
+
+.details.open {
+    display: initial;
+}
+
+button.more::before {
+    content: "More...";
+}
+
+button.more.open::before {
+    content: "Less...";
+}
+
+/* tablet layout: name in two lines, closer to image  */
+@media screen and (max-width: 960px) {
+    section.title > h1 {
+        line-height: 1.275;
+        max-width: 302px;
+    }
+    img.profile {
+        margin-right: 26px;
+    }
+}
+/* tablet + mobile layout - only one column */
+@media screen and (max-width: 768px) {
+    main {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "about"
+            "left"
+            "right";
+    }
+    body {
+        padding: 0 45px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        padding: 0 40px;
+    }
+    section.title {
+        margin-top: 55px;
+        flex-direction: column;
+        margin-bottom: 47px;
+    }
+    section.about {
+        padding: 0;
+        margin: 55px 0;
+    }
+    img.profile {
+        margin-right: 0;
+    }
+    section.title > h1 {
+        text-align: center;
+        padding-top: 22px;
+        padding-left: 11px;
+    }
+    main {
+        margin-top: 55px;
+    }
+    h3 {
+        line-height: 1.9;
+    }
+    p {
+        margin-bottom: 26px;
+    }
+}
+
+@media print {
+    .details, .more {
+        display: none !important;
+    }
+}
+/* styling for buttons */
+/* inspired by https://css-tricks.com/overriding-default-button-styles/ */
+button {
+    display: inline-block;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    margin: 0;
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    background: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:focus, button:focus-visible {
+    outline:none;
+}
+
+/* links */
+a {
+    color: var(--text-color);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-color);
+}

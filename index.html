@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="style.css" rel="stylesheet">
+		<title>Imre Ehreth resume</title>
+    <script>
+      function toggleMoreInfo(event) {
+        const button = event.target;
+        const id = button.dataset.details // value of data-details
+        if (!id) return;
+        const details = document.querySelector(id);
+        if (!details) return;
+        button.classList.toggle('open');
+        details.classList.toggle('open');
+      }
+      window.onload = () => {
+        for (const button of document.querySelectorAll("button.more"))
+          button.addEventListener('click', toggleMoreInfo);
+      }
+    </script>
+	</head>
+
+	<body>
+		<header id="header">
+      <div class="bg"></div>
+			<!-- resume header with your name and title -->
+      <section class="title">
+        <img class="profile" src="img/iehreth_cv.jpg" aria-hidden="true">
+        <h1>
+          Imre <span class="name">Ehreth</span> 
+        </h1>
+      </section>
+      <hr>
+      <section class="about">
+        <p>
+          I'm a <span class="strong">software developer, in Budapest, Hungary,</span> currently focusing on UI frameworks, programming languages 
+          and productivity tools.
+          I like to create frameworks, distributed systems and to optimize code for performance and memory efficiency. It is important to think in system.
+        </p>
+      </section>
+      <hr>
+		</header>
+		<main>
+			<article id="mainLeft">
+				<section>
+					<h2>More about me</h2>
+					<!-- contact info including social media -->
+          <!--<a class="social" href="https://github.com/gothi3">
+            <img class="icon social" aria-hidden="true" src="img/github-icon.svg">
+            / gothi3
+          </a>-->
+          <a class="social" href="https://www.linkedin.com/in/imre-ehreth-2357bb/">
+              <img class="icon social" aria-hidden="true" src="img/linkedin-icon.svg">
+              / Imre Ehreth
+          </a>
+				</section>
+				<section>
+					<h2>Skills</h2>
+					<h3>Industry Knowledge</h3>
+          <p>Software Design, Test Automation, Agile/Scrum</p>
+          <h3>Programming languages</h3>
+          <p>C++, Kotlin, TypeScript, JavaScript, Python, Perl, HTML, CSS, <small>objc,</small> shell scripting</p>
+          <h3>Platforms</h3>
+          <p>
+            Linux, Android, iOS, Windows
+          </p>
+          <h3>Tools &amp; Technologies</h3>
+          <p>Git VCS, Node.js, Visual Studio Code, Visual Studio, TCP/IP, Bluetooth</p>
+				</section>
+				<section>
+					<h2>Education</h2>
+					<h3>BSc, Programming Mathematician</h3>
+          <p>
+            Eötvös Loránd University<br>
+            1995-1998
+          </p>
+          
+          <p>
+            Diploma Thesis: SSH cleint for DOS (IBM pc, 386)
+          </p>
+				</section>            
+			</article>
+			<article id="mainRight">
+				<section>
+					<h2>Work Experience</h2>
+					<!-- your work experience -->
+          <h3>Software Developer and Architect</h3>
+          <p class="title">
+              NNG LLC | 2013 - Present
+          </p>
+          <p>
+            Designing and developing nng's in-house multiplatform HMI and scripting engine and framework, built on MVVM (Model-view-viewmodel) foundations.</p>
+            <p>
+            The engine has a EcmaScript like language supporting property observation. It supports many web like technologies (e.g. CSS, transitions, W3c dom events).
+            It is written mainly in C++ but integrates with kotlin/android and Objective-C/iOs.</p><p>
+
+            Also I shared the responsibility of coordinating tasks and technical leadership in the UI Engine team.
+            <button class="more" data-details="#uiengine-details"></button>
+          </p>
+          <div id="uiengine-details" class="details">
+            Here is an incomplete list about some of the things I've worked on:
+            <ul>
+              <li>Foundation of the engine (object system)</li>
+              <li>Developing our own `xscript` scripting language (an EcmaScript like language): module system, debugging support</li>
+              <li>Platform abstraction, event loop and integration</li>
+              <li>Network programming</li>
+              <li>XScript native library: filesystem, networking, functional library, iterator tools</li>
+              <li>building an xUnit like framework for unit and visual testing. 
+                It is written in the xscript language, supporting: mock 
+functions, visual testing, data driven testing, coverage measurements </li>
+              <li>vscode 'script debugger' extension, an IDE for the framework: xscript debugger,  test adapter integration, inspector (like the inspectors in modern browsers)</li>
+              <li>IPC framework supporting data mirroring, remote 
+evaluation of scripts, object interchange. </li>
+              <li>widget system, theming and skinning support, handling touch events (similar to W3C dom events)</li>
+              <li>animation system, CSS transitions</li>
+              <li>handling of multiple displays, also with different pixel densities</li>
+              <li>support for user defined components (like checkbox, radio, button, grid view)</li>
+            </ul>
+          </div>
+          <h3>Software Developer</h3> 
+          <p class="title">LogMeIn inc | 2012 - 2013</p>
+          <p>Architect of LogMeIn Pro windows team</p>
+          <p>Remote control browser plugin<br>LogMeIn remote destkop product host and client</p>
+          <p>Improved image scaling and VP8 video codec integration. Other artchitectural improvements of the sw suite</p>
+          <h3>Software Developer, Hero developer, Architect</h3>
+          <p class="title">NNG LLC | 2007 - 2012</p>
+          <P>iGo UI engine redesign: generic script interface, MVVM architecture basis</P>
+          <p>Extending navigation (iGo) search module architecture. Speed up several performance critical code</p>
+          <h3>Software Developer and Architect</h3>
+          <p class="title">Siemens PSE | 1998 - 2007</p>
+          <p>German Toll Collect:  Redesign On boards Unit's software for handling and updating geo database</p>
+          <P>Integrating multimedia capabilities for Siemens phone platform</P>
+          <p>Bluetooth network relay, PPPoE, L2TP, linux kernel module for BNEP</p>
+				</section>
+        <section>
+					<h2>Languages</h2>
+          <ul>
+            <li>
+              <h3>English</h3>
+              Full professional proficiency
+            </li>
+            <li>
+              <h3>German</h3>
+              Understanding.
+            </li>
+            <li>
+              <h3>Hungarian</h3>
+              Native proficiency
+            </li>
+          </ul>
+				</section>
+			</article>
+		</main>
+	
+</body></html>
